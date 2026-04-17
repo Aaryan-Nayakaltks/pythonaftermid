@@ -1,0 +1,28 @@
+def replace_middle_occurrences(lst, target, replacement):
+    indices = []
+    
+    # Find all indices of target
+    for i in range(len(lst)):
+        if lst[i] == target:
+            indices.append(i)
+    
+    # If occurrences < 3 → no change
+    if len(indices) < 3:
+        return lst
+    
+    # Replace middle occurrences (excluding first & last)
+    for i in indices[1:-1]:
+        lst[i] = replacement
+    
+    return lst
+
+
+# Input lena
+lst = list(map(int, input("Enter list elements: ").split()))
+target = int(input("Enter target value: "))
+replacement = int(input("Enter replacement value: "))
+
+# Function call
+result = replace_middle_occurrences(lst, target, replacement)
+
+print("Updated list:", result)
