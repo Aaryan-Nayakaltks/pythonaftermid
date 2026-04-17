@@ -1,0 +1,46 @@
+def matrix_subtract(A, B):
+    # Dimension check
+    if len(A) != len(B) or len(A[0]) != len(B[0]):
+        raise ValueError("Matrices must have the same dimensions")
+    
+    result = []
+    
+    for i in range(len(A)):
+        row = []
+        for j in range(len(A[0])):
+            row.append(A[i][j] - B[i][j])   # subtraction
+        result.append(row)
+    
+    return result
+
+
+# Input lena
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+print("Enter Matrix A:")
+A = []
+for i in range(rows):
+    row = list(map(int, input().split()))
+    if len(row) != cols:
+        raise ValueError("Invalid input for Matrix A")
+    A.append(row)
+
+print("Enter Matrix B:")
+B = []
+for i in range(rows):
+    row = list(map(int, input().split()))
+    if len(row) != cols:
+        raise ValueError("Invalid input for Matrix B")
+    B.append(row)
+
+# Function call
+try:
+    result = matrix_subtract(A, B)
+    
+    print("Resultant Matrix:")
+    for row in result:
+        print(row)
+
+except ValueError as e:
+    print("Error:", e)
