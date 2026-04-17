@@ -1,0 +1,17 @@
+def replace_all_occurrences(lst, target, replacement):
+    for i in range(len(lst)):
+        if lst[i] == target:
+            lst[i] = replacement
+    
+    return lst
+
+
+# Input lena
+lst = list(map(int, input("Enter list elements: ").split()))
+target = int(input("Enter target value: "))
+replacement = int(input("Enter replacement value: "))
+
+# Function call
+result = replace_all_occurrences(lst, target, replacement)
+
+print("Updated list:", result)
