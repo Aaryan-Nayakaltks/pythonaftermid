@@ -1,0 +1,34 @@
+def row_wise_max(matrix):
+    result = []
+    
+    for row in matrix:
+        if not row:          # empty row
+            result.append(None)
+        else:
+            max_val = row[0]
+            for num in row:
+                if num > max_val:
+                    max_val = num
+            result.append(max_val)
+    
+    return result
+
+
+# Input lena
+rows = int(input("Enter number of rows: "))
+matrix = []
+
+print("Enter matrix rows:")
+
+for i in range(rows):
+    row = input().strip()
+    
+    if row == "":   # empty row case
+        matrix.append([])
+    else:
+        matrix.append(list(map(int, row.split())))
+
+# Function call
+result = row_wise_max(matrix)
+
+print("Row-wise maximum:", result)
