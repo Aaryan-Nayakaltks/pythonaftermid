@@ -1,0 +1,39 @@
+def column_wise_min(matrix):
+    # Check empty matrix
+    if not matrix or not matrix[0]:
+        return []
+    
+    rows = len(matrix)
+    cols = len(matrix[0])
+    
+    result = []
+    
+    for j in range(cols):          # column loop
+        min_val = matrix[0][j]
+        
+        for i in range(rows):      # row loop
+            if matrix[i][j] < min_val:
+                min_val = matrix[i][j]
+        
+        result.append(min_val)
+    
+    return result
+
+
+# Input lena
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+matrix = []
+print("Enter matrix elements:")
+
+for i in range(rows):
+    row = list(map(int, input().split()))
+    if len(row) != cols:
+        raise ValueError("Invalid row length")
+    matrix.append(row)
+
+# Function call
+result = column_wise_min(matrix)
+
+print("Column-wise minimum:", result)
