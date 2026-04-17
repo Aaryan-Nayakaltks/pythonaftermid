@@ -1,0 +1,32 @@
+def matrix_max(matrix):
+    # Check empty matrix
+    if not matrix or not matrix[0]:
+        return None
+    
+    max_val = matrix[0][0]  # assume first element is max
+    
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):   # works for rectangular also
+            if matrix[i][j] > max_val:
+                max_val = matrix[i][j]
+    
+    return max_val
+
+
+# Input lena
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+matrix = []
+print("Enter matrix elements:")
+
+for i in range(rows):
+    row = list(map(int, input().split()))
+    if len(row) != cols:
+        raise ValueError("Invalid row length")
+    matrix.append(row)
+
+# Function call
+result = matrix_max(matrix)
+
+print("Maximum element:", result)
