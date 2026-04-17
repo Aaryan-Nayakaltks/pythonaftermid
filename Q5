@@ -1,0 +1,32 @@
+def matrix_min(matrix):
+    # Check empty matrix
+    if not matrix or not matrix[0]:
+        return None
+    
+    min_val = matrix[0][0]  # assume first element is minimum
+    
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):   # works for rectangular matrix
+            if matrix[i][j] < min_val:
+                min_val = matrix[i][j]
+    
+    return min_val
+
+
+# Input lena
+rows = int(input("Enter number of rows: "))
+cols = int(input("Enter number of columns: "))
+
+matrix = []
+print("Enter matrix elements:")
+
+for i in range(rows):
+    row = list(map(int, input().split()))
+    if len(row) != cols:
+        raise ValueError("Invalid row length")
+    matrix.append(row)
+
+# Function call
+result = matrix_min(matrix)
+
+print("Minimum element:", result)
