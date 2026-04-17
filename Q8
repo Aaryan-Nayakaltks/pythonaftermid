@@ -1,0 +1,18 @@
+def count_frequency(lst, target):
+    count = 0
+    
+    for num in lst:
+        if num == target:
+            count += 1
+    
+    return count
+
+
+# Input lena
+lst = list(map(int, input("Enter list elements: ").split()))
+target = int(input("Enter target value: "))
+
+# Function call
+result = count_frequency(lst, target)
+
+print("Frequency of", target, "is:", result)
