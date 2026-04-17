@@ -1,0 +1,31 @@
+def replace_first_last_occurrence(lst, target, replacement):
+    first = -1
+    last = -1
+    
+    # Find first and last occurrence
+    for i in range(len(lst)):
+        if lst[i] == target:
+            if first == -1:
+                first = i
+            last = i
+    
+    # If target not found
+    if first == -1:
+        return lst
+    
+    # Replace first and last
+    lst[first] = replacement
+    lst[last] = replacement
+    
+    return lst
+
+
+# Input lena
+lst = list(map(int, input("Enter list elements: ").split()))
+target = int(input("Enter target value: "))
+replacement = int(input("Enter replacement value: "))
+
+# Function call
+result = replace_first_last_occurrence(lst, target, replacement)
+
+print("Updated list:", result)
