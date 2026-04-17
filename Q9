@@ -1,0 +1,22 @@
+def all_frequencies(lst):
+    freq = {}
+    
+    for num in lst:
+        if num in freq:
+            freq[num] += 1
+        else:
+            freq[num] = 1
+    
+    return freq
+
+
+# Input lena
+lst = list(map(int, input("Enter list elements: ").split()))
+
+# Function call
+result = all_frequencies(lst)
+
+# Readable format me print
+print("Frequencies:")
+for key, value in result.items():
+    print(f"{key} -> {value}")
