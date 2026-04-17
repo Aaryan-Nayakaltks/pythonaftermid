@@ -1,0 +1,17 @@
+def remove_duplicates_preserve_order(lst):
+    result = []
+    
+    for num in lst:
+        if num not in result:   # check if already added
+            result.append(num)
+    
+    return result
+
+
+# Input lena
+lst = list(map(int, input("Enter list elements: ").split()))
+
+# Function call
+result = remove_duplicates_preserve_order(lst)
+
+print("List after removing duplicates:", result)
